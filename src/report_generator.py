@@ -13,14 +13,17 @@ logger = logging.getLogger(__name__)
 
 # Import from centralized config
 try:
-    from config import GEMINI_RATE_LIMIT_DELAY
+    from config import XAI_TRANSLATE_RATE_LIMIT_DELAY
 except ImportError:
     try:
-        from src.config import GEMINI_RATE_LIMIT_DELAY
+        from src.config import XAI_TRANSLATE_RATE_LIMIT_DELAY
     except ImportError:
-        GEMINI_RATE_LIMIT_DELAY = 1.5
+        XAI_TRANSLATE_RATE_LIMIT_DELAY = 0.5
 
-# --- Gemini Translator ---
+# 向后兼容
+GEMINI_RATE_LIMIT_DELAY = XAI_TRANSLATE_RATE_LIMIT_DELAY
+
+# --- Translator (Grok API) ---
 try:
     from utils.gemini_translator import translate_to_chinese, summarize_blog_article
     GEMINI_AVAILABLE = True

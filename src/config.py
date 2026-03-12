@@ -40,6 +40,7 @@ GEMINI_API_URL = "https://generativelanguage.googleapis.com/v1beta/models"
 GEMINI_MODEL = "gemini-2.5-flash-lite"
 XAI_BASE_URL = os.getenv("XAI_BASE_URL", "https://api.x.ai/v1/chat/completions")
 XAI_MODEL = os.getenv("XAI_MODEL", "grok-beta")
+XAI_TRANSLATE_MODEL = os.getenv("XAI_TRANSLATE_MODEL", "grok-3-fast")
 GITHUB_API_URL = "https://api.github.com/graphql"
 JINA_READER_URL = "https://r.jina.ai/"
 
@@ -60,6 +61,8 @@ GEMINI_DETAIL_MAX_TOKENS = 1024
 # --- Rate Limiting ---
 GEMINI_RATE_LIMIT_DELAY = 1.5  # seconds between Gemini API calls
 GEMINI_MAX_RETRIES = 3
+XAI_TRANSLATE_RATE_LIMIT_DELAY = 0.5  # Grok API 限流间隔（比 Gemini 宽松）
+XAI_TRANSLATE_MAX_RETRIES = 3
 
 # --- Fetch Limits ---
 MAX_BLOGS_TO_FETCH = 20
